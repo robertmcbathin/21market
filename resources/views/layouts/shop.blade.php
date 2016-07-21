@@ -16,8 +16,8 @@
 
     <!-- Custom CSS -->
     <link href="{{ URL::to('src/css/shop-homepage.css') }}" rel="stylesheet">
-    <link href="{{ URL::to('src/css/affix.css') }}" rel="stylesheet">
-    <link href="{{ URL::to('src/css/main-style.css') }}" rel="stylesheet">
+    <link href="{{ URL::to('src/css/shop-layout.css') }}" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -50,7 +50,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ URL::to('src/js/bootstrap.min.js') }}"></script>
-    <script src="{{ URL::to('src/js/affix.js') }}"></script>
+
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.shop')
 
 @section('description')
 21market - интернет-магазин и сервис совместных покупок в Чувашской Республике

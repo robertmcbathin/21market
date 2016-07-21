@@ -1,0 +1,7 @@
+.navbar-inverse{
+	background-color: #6ace6c; //#60AF97
+	border-color: #34a936;
+}
+.navbar-inverse .navbar-nav>li>a {
+	color: #fff;
+}

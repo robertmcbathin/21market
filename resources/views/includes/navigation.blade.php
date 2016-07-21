@@ -8,19 +8,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><img src="{{ URL::to('src/images/21market-logo.png') }}" alt="" width="32px"></a>
+                <a class="navbar-brand" href="/"><img src="{{ URL::to('src/images/21market-logo.png') }}" alt="" width="30px"></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About</a>
+                        <a href="#">О компании</a>
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        <a href="#">Как заказать?</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="#">Доставка</a>
                     </li>
                 </ul>
             </div>
