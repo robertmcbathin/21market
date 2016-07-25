@@ -20,3 +20,14 @@
 #shop-button>a:hover{
 	text-decoration: none !important;
 }
+#purchase-button{
+	background-color: #6ace6c;
+	color:#fff;
+	border-color: #fff;
+}
+#purchase-button>a{
+	color: #fff !important;
+}
+#purchase-button>a:hover{
+	text-decoration: none !important;
+}

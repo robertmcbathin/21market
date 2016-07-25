@@ -1,4 +1,4 @@
-@extends('layouts.shop')
+@extends('layouts.purchase')
 
 @section('description')
 21market - интернет-магазин и сервис совместных покупок в Чувашской Республике
@@ -23,8 +23,8 @@
                     </div>
                 </div>
                 <div class="btn-group" role="group" aria-label="...">
-                  <button type="button" class="btn btn-default active" id="shop-button"><a href="/shop">Магазин</a></button>
-                  <button type="button" class="btn btn-default" id="purchase-button"><a href="/sp">Совместные покупки</a></button>
+                  <button type="button" class="btn btn-default" id="shop-button"><a href="/shop">Магазин</a></button>
+                  <button type="button" class="btn btn-default active" id="purchase-button"><a href="/sp">Совместные покупки</a></button>
                 </div>
                 <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix"> 
                   <ul class="nav bs-docs-sidenav"> 

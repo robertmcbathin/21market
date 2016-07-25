@@ -1,7 +1,33 @@
 .navbar-inverse{
-	background-color: #6ace6c; //#60AF97
-	border-color: #34a936;
+	background-color: #6ace6c;
+	border-color: #269653;
 }
 .navbar-inverse .navbar-nav>li>a {
 	color: #fff;
+}
+#logo{
+	background: url('/src/images/21market-logo-purchase-100.png') no-repeat center;
+	width: 100px;
+	height: 100px;
+}
+#shop-button{
+	background-color: #5790c1;
+	color:#fff;
+}
+#shop-button>a{
+	color: #fff !important;
+}
+#shop-button>a:hover{
+	text-decoration: none !important;
+}
+#purchase-button{
+	background-color: #6ace6c;
+	color:#fff;
+	border-color: #fff;
+}
+#purchase-button>a{
+	color: #fff !important;
+}
+#purchase-button>a:hover{
+	text-decoration: none !important;
 }

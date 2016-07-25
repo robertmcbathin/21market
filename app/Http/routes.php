@@ -15,3 +15,4 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/shop', ['uses' => 'ProductController@getMainPage', 'as' => 'shop']);
+Route::get('/sp', ['uses' => 'PurchaseController@getMainPage', 'as' => 'sp']);
