@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use DB;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -68,5 +69,44 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+    /**
+     * Check the posted by user data and authorizing it
+     *
+     * @request  array  $request
+     * @return User
+     */
+    public function postLogIn(Request $request)
+    {
+        $this->validate($request,[
+            'username' => 'required',
+            'password' => 'required|min:4'
+            ]);
+        $username = $request['username'];
+        $password = $request['password'];
+        if (Auth::attempt(['username' => $username, 'password' => $password])){
+            return redirect()->route($this->redirectTo);
+        }
+        return redirect()->back();
+      /*  if (Hash::check($password, $hashed_password)){
+            $user = new Employee();
+            $user->username = $username;
+            Auth::login($user);
+            return redirect()->route($this->redirectTo);
+        }
+        return redirect()->back();*/
+    }
+    public function getLogIn()
+    {
+        return view('auth.login');
+    }
+    public function getLogOut()
+    {
+        Auth::logout();
+        return redirect()->route('home');
+    }
+    public function getRegister()
+    {
+        return view('auth.register');
     }
 }

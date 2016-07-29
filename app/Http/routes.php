@@ -10,9 +10,22 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
+Route::group(['middleware' => ['web']], function(){
+    Route::get('/', function () {
     return view('index');
+     });
+    Route::get('/shop', [
+     	'uses' => 'ProductController@getMainPage', 
+     	'as' => 'shop'     
+     	]);
+    Route::get('/sp', [
+     	'uses' => 'PurchaseController@getMainPage', 
+     	'as' => 'sp'
+     	]);
+    // Маршруты аутентификации...
+    Route::get('/auth/login', 'Auth\AuthController@getLogIn');
+    Route::post('/auth/login', 'Auth\AuthController@postLogIn');
+    Route::get('/auth/logout', 'Auth\AuthController@getLogOut');
+
 });
-Route::get('/shop', ['uses' => 'ProductController@getMainPage', 'as' => 'shop']);
-Route::get('/sp', ['uses' => 'PurchaseController@getMainPage', 'as' => 'sp']);
+
