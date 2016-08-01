@@ -13,6 +13,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ URL::to('src/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::to('src/css/font-awesome.min.css') }}" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="{{ URL::to('src/css/shop-homepage.css') }}" rel="stylesheet">
@@ -51,6 +52,43 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ URL::to('src/js/bootstrap.min.js') }}"></script>
     <script src="{{ URL::to('src/js/affix.js') }}"></script>
+    <script>
+   $(document).ready(function(){
+    $('#phone-entry').click(function(event){
+        event.preventDefault(); 
+        $('#email-entry').removeClass('active');
+        $('#card-entry').removeClass('active');
+        $('#phone-entry').addClass('active');
+
+        $('#email-input').css('display','none');
+        $('#card-input').css('display','none');
+        $('#phone-input').css('display', 'block');
+        $('#auth_type').attr('value', 1);
+    });
+    $('#email-entry').click(function(event){
+        event.preventDefault(); 
+        $('#phone-entry').removeClass('active');
+        $('#card-entry').removeClass('active');
+        $('#email-entry').addClass('active');
+
+        $('#phone-input').css('display','none');
+        $('#card-input').css('display','none');
+        $('#email-input').css('display', 'block');
+        $('#auth_type').attr('value', 2);
+    });
+    $('#card-entry').click(function(event){
+        event.preventDefault(); 
+        $('#email-entry').removeClass('active');
+        $('#phone-entry').removeClass('active');
+        $('#card-entry').addClass('active');
+
+        $('#email-input').css('display','none');
+        $('#phone-input').css('display','none');
+        $('#card-input').css('display', 'block');
+        $('#auth_type').attr('value', 3);
+    });
+   }) 
+</script>
 </body>
 
 </html>

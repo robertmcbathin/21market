@@ -24,6 +24,26 @@
                     <a href="#">Доставка</a>
                 </li>
             </ul>
+             <ul class="nav navbar-nav navbar-right">
+        @if (Auth::user() == NULL)
+        <li>
+          <a href="/auth/login" ><b>Вход</b></a>
+            <ul id="login-dp" class="dropdown-menu">
+                <li>
+                     
+                </li>
+            </ul>
+        </li>
+        @endif
+      <!--  <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Вход</b> <span class="caret"></span></a>
+            <ul id="login-dp" class="dropdown-menu">
+                <li>
+                     
+                </li>
+            </ul>
+        </li> -->
+      </ul>
         </div>
         <!-- /.navbar-collapse --> </div>
     <!-- /.container -->

@@ -13,6 +13,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ URL::to('src/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::to('src/css/font-awesome.min.css') }}" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="{{ URL::to('src/css/shop-homepage.css') }}" rel="stylesheet">
