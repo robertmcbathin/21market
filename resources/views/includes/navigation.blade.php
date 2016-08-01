@@ -34,6 +34,15 @@
                 </li>
             </ul>
         </li>
+        @else
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>{{Auth::user()->first_name}}</b> <b>{{Auth::user()->second_name}}</b> <span class="caret"></span></a>
+            <ul id="login-dp" class="dropdown-menu">
+                <li>
+                     <a href="/auth/logout">Выйти</a>
+                </li>
+            </ul>
+        </li>
         @endif
       <!--  <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Вход</b> <span class="caret"></span></a>

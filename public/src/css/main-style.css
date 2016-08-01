@@ -1,6 +1,6 @@
 .navbar-inverse{
 	background-color: #60AF97;
-	border-color: #206b5a;
+	border-color: #549e7f;
 }
 .navbar-inverse .navbar-nav>li>a {
 	color: #fff;
@@ -100,5 +100,13 @@
 }
 .main-btn{
     background-color: #60af97;
-    border-color: #206b5a;
+    border-color: #549e7f;
+}
+.main-btn.active{
+    background-color: #517f6a;
+    border-color: #549e7f;
+}
+.main-btn.active:hover{
+    background-color: #517f6a;
+    border-color: #549e7f;
 }

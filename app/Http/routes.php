@@ -13,7 +13,7 @@
 Route::group(['middleware' => ['web']], function(){
     Route::get('/', function () {
     return view('index');
-     });
+     })->name('home');
     Route::get('/shop', [
      	'uses' => 'ProductController@getMainPage', 
      	'as' => 'shop'     

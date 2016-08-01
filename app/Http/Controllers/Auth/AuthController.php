@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use DB;
+use App\Employee;
+use Illuminate\Http\Request;
 use Validator;
+use DB;
+use Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Support\Facades\Auth;
+
+use App\Http\Requests;
 
 class AuthController extends Controller
 {
@@ -78,16 +83,50 @@ class AuthController extends Controller
      */
     public function postLogIn(Request $request)
     {
-        $this->validate($request,[
-            'username' => 'required',
-            'password' => 'required|min:4'
-            ]);
-        $username = $request['username'];
-        $password = $request['password'];
-        if (Auth::attempt(['username' => $username, 'password' => $password])){
-            return redirect()->route($this->redirectTo);
+        $auth_type = $request['auth_type'];
+        switch ($auth_type){
+            case 1:
+              $this->validate($request,[
+                'phone' => 'required',
+                'password' => 'required|min:4'
+              ]);  
+              $phone = $request['phone'];
+              $password = $request['password'];
+              if (Auth::attempt(['phone' => $phone, 'password' => $password])){
+                return redirect()->route('home');
+              };
+            case 2:
+              $this->validate($request,[
+                'email' => 'required',
+                'password' => 'required|min:4'
+              ]);  
+              $email = $request['email'];
+              $password = $request['password'];
+              if (Auth::attempt(['email' => $email, 'password' => $password])){
+                return redirect()->route('home');
+              };
+              case 3:
+              $this->validate($request,[
+                'card_serie' => 'required',
+                'card_number' => 'required',
+                'password' => 'required|min:4'
+              ]);  
+              $card_serie = $request['card_serie'];
+              $card_number = $request['card_number'];
+              $password = $request['password'];
+
+              /*GET THE CARD ID*/
+              $card_id = DB::table('activated_cards')
+                         ->select('id')
+                         ->where('serie',$card_serie)
+                         ->where('num',$card_number)
+                         ->first();
+              /**/
+              if (Auth::attempt(['card_id' => $card_id, 'password' => $password])){
+                return redirect()->route('home');
+              };
+
         }
-        return redirect()->back();
       /*  if (Hash::check($password, $hashed_password)){
             $user = new Employee();
             $user->username = $username;
@@ -103,6 +142,9 @@ class AuthController extends Controller
     public function getLogOut()
     {
         Auth::logout();
+        Session::flush();
+        SetCookie("laravel_session", "хуй", time()-3600);
+        session_destroy();
         return redirect()->route('home');
     }
     public function getRegister()

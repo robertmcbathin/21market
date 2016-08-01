@@ -84,7 +84,7 @@
 
         $('#email-input').css('display','none');
         $('#phone-input').css('display','none');
-        $('#card-input').css('display', 'block');
+        $('#card-input').css('display', 'inline-block');
         $('#auth_type').attr('value', 3);
     });
    }) 
