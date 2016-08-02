@@ -1,3 +1,7 @@
+@font-face{
+    font-family: 'Exo 2 Bold';
+    src: url(/src/fonts/Exo2-Bold.otf);
+}
 .navbar-inverse{
 	background-color: #60AF97;
 	border-color: #549e7f;
@@ -94,6 +98,8 @@
         border-top:0 none;
     }
 }
+}
+/*COMMON STYLES*/
 .login-choice{
     margin-top: 10px;
     margin-bottom: 10px;
@@ -110,3 +116,6 @@
     background-color: #517f6a;
     border-color: #549e7f;
 }
+.m55-fonted{
+    font-family: "Exo 2 Bold";
+/*-------------*/

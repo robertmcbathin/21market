@@ -19,7 +19,7 @@
                                    <button type="button" class="btn btn-primary main-btn" id="card-entry"><i class="fa fa-credit-card"></i></button>
                                  </div>
                             </div>
-                                 <form method="POST" action="/auth/login" id="login-nav">
+                                 <form method="POST" action="/login" id="login-nav">
                                         <div class="form-group" id="email-input">
                                              <label class="sr-only" for="email">Электронная почта</label>
                                              <input type="email" name="email" class="form-control" id="email" placeholder="Электронная почта" value="{{ old('email') }}">
@@ -48,7 +48,7 @@
                                         </div>
                                         <div class="checkbox">
                                              <label>
-                                             <input type="checkbox"> Запомнить меня
+                                             <input type="checkbox" name="remember"> Запомнить меня
                                              </label>
                                         </div>
                                         <input type="hidden" name="_token" value="{{ Session::token() }}">

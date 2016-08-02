@@ -15,19 +15,20 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">О компании</a>
+                    <a href="#" class="m55-fonted">О компании</a>
                 </li>
                 <li>
-                    <a href="#">Как заказать?</a>
+                    <a href="#" class="m55-fonted">Как заказать?</a>
                 </li>
                 <li>
-                    <a href="#">Доставка</a>
+                    <a href="#" class="m55-fonted">Доставка</a>
                 </li>
             </ul>
-             <ul class="nav navbar-nav navbar-right">
+       <ul class="nav navbar-nav navbar-right">
+
         @if (Auth::user() == NULL)
         <li>
-          <a href="/auth/login" ><b>Вход</b></a>
+          <a href="/login" ><b>Вход</b></a>
             <ul id="login-dp" class="dropdown-menu">
                 <li>
                      
@@ -35,11 +36,14 @@
             </ul>
         </li>
         @else
+        <li>
+            <a href="/shop/cart" class="m55-fonted"><i class="fa fa-shopping-cart"></i> Корзина</a>
+        </li>
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>{{Auth::user()->first_name}}</b> <b>{{Auth::user()->second_name}}</b> <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><b>{{Auth::user()->first_name}}</b> <b>{{Auth::user()->second_name}}</b> <span class="caret"></span></a>
             <ul id="login-dp" class="dropdown-menu">
                 <li>
-                     <a href="/auth/logout">Выйти</a>
+                     <a href="/logout" class="m55-fonted">>Выйти</a>
                 </li>
             </ul>
         </li>

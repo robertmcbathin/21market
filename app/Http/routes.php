@@ -22,10 +22,13 @@ Route::group(['middleware' => ['web']], function(){
      	'uses' => 'PurchaseController@getMainPage', 
      	'as' => 'sp'
      	]);
-    // Маршруты аутентификации...
-    Route::get('/auth/login', 'Auth\AuthController@getLogIn');
-    Route::post('/auth/login', 'Auth\AuthController@postLogIn');
-    Route::get('/auth/logout', 'Auth\AuthController@getLogOut');
+    // AUTHENTIFICATION 
+    Route::get('/login',  'UserController@getLogIn');
+    Route::post('/login', 'UserController@postLogIn');
+    Route::get('/logout', 'UserController@getLogOut');
+    //REGISTRATION
+    Route::get('/signup',  'UserController@getSignUp');
+    Route::post('/signup', 'UserController@postSignUp');
 
 });
 
