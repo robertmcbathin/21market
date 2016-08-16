@@ -41,7 +41,7 @@
                     <h3>Интернет-магазин</h3>
                     <p>Здесь вы можете заказать интересующий Вас товар из каталога</p>
                     <p>
-                        <a href="#" class="btn btn-primary" role="button">Перейти в Интернет-магазин</a>
+                        <a href="{{route('shop')}}" class="btn btn-primary" role="button">Перейти в Интернет-магазин</a>
                     </p>
                 </div>
             </div>

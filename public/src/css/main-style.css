@@ -3,6 +3,7 @@
     src: url(/src/fonts/Exo2-Bold.otf);
 }
 @font-face{
+<<<<<<< HEAD
     font-family: 'Exo 2 Regular';
     src: url(/src/fonts/Exo2-Regular.otf);
 }
@@ -14,10 +15,13 @@ footer{
     border-color: #549e7f;
     text-align: center;
     color: #fff;
-    max-height: 200px;
+    min-height: 200px;
     height: auto;
 }
-
+@font-face{
+    font-family: 'Exo 2 Medium';
+    src: url(/src/fonts/Exo2-Medium.otf);
+}
 .navbar-inverse{
 	background-color: #60AF97;
 	border-color: #549e7f;

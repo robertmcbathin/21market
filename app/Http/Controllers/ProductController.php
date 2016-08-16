@@ -21,10 +21,14 @@ class ProductController extends Controller
                           ->where('priority','<=',3)
       				      ->orderBy('priority', 'asc')
                           ->get();
+      $banners      = DB::table('banners')
+                        ->where('show_in', 1)
+                        ->get();
     	return view('shop.index',[
         'categories' => $сategories,
         'subcategories' => $subсategories,
-        'products' => $products
+        'products' => $products,
+        'banners'  => $banners
         ]);
     }
 }

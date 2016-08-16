@@ -62,17 +62,20 @@
             <div class="col-md-12">
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                      @foreach ($banners as $banner)
+                      <li data-target="#carousel-example-generic" data-slide-to="{{$banner->order}}" class="{{ ($banner->order == 1) ? 'active' : '' }}"></li>
+                      @endforeach
                     </ol>
                     <div class="carousel-inner">
-                        <div class="item active">
-                            <img class="slide-image" src="http://placehold.it/800x300" alt=""></div>
-                        <div class="item">
-                            <img class="slide-image" src="http://placehold.it/800x300" alt=""></div>
-                        <div class="item">
-                            <img class="slide-image" src="http://placehold.it/800x300" alt=""></div>
+                    @foreach ($banners as $banner)
+                      <div class="item active">
+                            <img class="slide-image" src="{{$banner->path_to_img}}" alt="" width="800" height="300">
+                            <div class="carousel-caption">
+                              <h3>{{ $banner->title }}</h3>
+                              <p>{{ $banner->description }}</p>
+                            </div>
+                      </div>
+                    @endforeach
                     </div>
                     <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left"></span>
@@ -93,27 +96,7 @@
                     <h2>{{ $subcategory->name }}</h2>
                     @foreach ($products as $product)
                     @if ($product->subcategory_id == $subcategory->id)
-                      <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                          <img src="{{ $product->path_to_img }}" alt="{{ $product->name }}" height="150" >
-                        <div class="caption" >
-                        <h4>
-                              <a href="#">{{ $product->name }}</a>
-                          </h4>
-                          <h4 class="pull-right">{{ $product->price }}</h4>
-                          </div>
-                          <div class="ratings">
-                            <p class="pull-right">15 reviews</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                            </p>
-                          </div>
-                        </div>
-                      </div>
+                        @include('sections.product_thumbnail')
                     @endif
                     @endforeach
                   </div>
