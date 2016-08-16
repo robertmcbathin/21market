@@ -37,14 +37,8 @@
     @yield('content')
     <!-- /.container -->
 
-    <div class="container">
-
-        <hr>
-
-        <!-- Footer -->
-        @include('includes.footer')
-
-    </div>
+    <!-- Footer -->
+    @include('includes.footer')
     <!-- /.container -->
     <!-- jQuery -->
     <script src="{{ URL::to('src/js/jquery.js') }}"></script>

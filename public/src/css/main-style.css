@@ -2,6 +2,22 @@
     font-family: 'Exo 2 Bold';
     src: url(/src/fonts/Exo2-Bold.otf);
 }
+@font-face{
+    font-family: 'Exo 2 Regular';
+    src: url(/src/fonts/Exo2-Regular.otf);
+}
+body{
+    font-family: 'Exo 2';
+}
+footer{
+    background-color: #60AF97;
+    border-color: #549e7f;
+    text-align: center;
+    color: #fff;
+    max-height: 200px;
+    height: auto;
+}
+
 .navbar-inverse{
 	background-color: #60AF97;
 	border-color: #549e7f;
@@ -100,6 +116,9 @@
 }
 }
 /*COMMON STYLES*/
+.row>p,h1,h2,a{
+    font-family: 'Exo 2';
+}
 .login-choice{
     margin-top: 10px;
     margin-bottom: 10px;
@@ -118,4 +137,19 @@
 }
 .m55-fonted{
     font-family: "Exo 2 Bold";
+}
 /*-------------*/
+.index-bg{
+  background: url(/src/images/21market-logo-main-300.png) no-repeat center center;
+  height: 300px;
+}
+.index-text{
+    text-align: center;
+}
+a{
+    color: #60AF97;
+}
+a:hover{
+    color: #549e7f;
+    cursor: pointer;
+}
