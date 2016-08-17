@@ -34,7 +34,7 @@
         <h2>Выберите раздел:</h2>
     </div>
     <div class="row">
-        <div class="col-sm-6 col-md-6">
+        <div class="col-sm-6  col-md-6 col-lg-offset-3 col-lg-3">
             <div class="thumbnail">
                 <img src="{{URL::to('/src/images/goods-image.jpg')}}" alt="Интернет-магазин товаров">
                 <div class="caption">
@@ -46,7 +46,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-6">
+        <div class="col-sm-6 col-md-6 col-lg-3">
             <div class="thumbnail">
                 <img src="{{URL::to('/src/images/people-image.jpg')}}" alt="Интернет-магазин товаров">
                 <div class="caption">

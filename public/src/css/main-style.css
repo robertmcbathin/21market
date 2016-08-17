@@ -3,12 +3,11 @@
     src: url(/src/fonts/Exo2-Bold.otf);
 }
 @font-face{
-<<<<<<< HEAD
     font-family: 'Exo 2 Regular';
     src: url(/src/fonts/Exo2-Regular.otf);
 }
 body{
-    font-family: 'Exo 2';
+    font-family: 'Exo 2 Regular';
 }
 footer{
     background-color: #60AF97;
