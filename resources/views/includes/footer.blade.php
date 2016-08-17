@@ -1,5 +1,6 @@
 <footer>
 <div class="container-fluid">
+<hr>
 	<div class="row">
 		<div class="col-md-4 col-sm-12">
 			<ul>
@@ -8,8 +9,19 @@
 			  <li>Доставка и самовывоз</li>
 			</ul>
 		</div>
-		<div class="col-md-4 col-sm-12"></div>
-		<div class="col-md-4 col-sm-12"></div>
+		<div class="col-md-4 col-sm-12">
+			<ul>
+			  <li>Магазин</li>
+			  <li>Совместные покупки</li>
+			</ul>
+		</div>
+		<div class="col-md-4 col-sm-12">
+			<ul>
+				<li>
+					<a href="http://etk-club.ru" target="_blank">Вступить в ЕТК-Клуб</a>
+				</li>
+			</ul>
+		</div>
 	</div>
 	<hr>
 	<div class="row">

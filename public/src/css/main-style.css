@@ -10,12 +10,13 @@ body{
     font-family: 'Exo 2 Regular';
 }
 footer{
-    background-color: #60AF97;
-    border-color: #549e7f;
     text-align: center;
-    color: #fff;
+    color: #549e7f;
     min-height: 200px;
     height: auto;
+}
+footer li{
+    list-style: none;
 }
 @font-face{
     font-family: 'Exo 2 Medium';
