@@ -5,7 +5,7 @@
                         <h4>
                               <a href="#">{{ $product->name }}</a>
                           </h4>
-                          <h4 class="pull-right">{{ $product->price }}</h4>
+                          <h4 class="pull-left">{{ $product->price }}</h4>
                           </div>
                           <div class="pull-right">
                             <a href="{{route('product.addToCart', ['id' => $product->id])}}" class="btn btn-primary">В корзину</a>
