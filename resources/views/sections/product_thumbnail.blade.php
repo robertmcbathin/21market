@@ -7,7 +7,10 @@
                           </h4>
                           <h4 class="pull-right">{{ $product->price }}</h4>
                           </div>
-                          <div class="ratings">
+                          <div class="pull-right">
+                            <a href="{{route('product.addToCart', ['id' => $product->id])}}" class="btn btn-primary">В корзину</a>
+                          </div>
+                          <!-- <div class="ratings">
                             <p class="pull-right">15 reviews</p>
                             <p>
                                 <span class="glyphicon glyphicon-star"></span>
@@ -16,6 +19,6 @@
                                 <span class="glyphicon glyphicon-star"></span>
                                 <span class="glyphicon glyphicon-star"></span>
                             </p>
-                          </div>
+                          </div> -->
                         </div>
                       </div>

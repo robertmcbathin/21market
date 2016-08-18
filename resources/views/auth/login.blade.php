@@ -14,9 +14,9 @@
                             Войти при помощи:
                             <div class="text-center login-choice">
                                 <div class="btn-group" role="group" aria-label="...">
-                                   <button type="button" class="btn btn-primary main-btn" id="phone-entry"><i class="fa fa-phone"></i></button>
-                                   <button type="button" class="btn btn-primary main-btn active" id="email-entry"><i class="fa fa-at"></i></button>
-                                   <button type="button" class="btn btn-primary main-btn" id="card-entry"><i class="fa fa-credit-card"></i></button>
+                                   <button type="button" class="btn main-btn" id="phone-entry"><i class="fa fa-phone"></i></button>
+                                   <button type="button" class="btn main-btn active" id="email-entry"><i class="fa fa-at"></i></button>
+                                   <button type="button" class="btn main-btn" id="card-entry"><i class="fa fa-credit-card"></i></button>
                                  </div>
                             </div>
                                  <form method="POST" action="/login" id="login-nav">
@@ -58,7 +58,7 @@
                                         </div>
                                  </form>
                             <div class="bottom text-center">
-                                Нет аккаунта? Вы можете <a href="#"><b>завести обычный аккаунт</b></a> или <a href=""><b>стать участником программы "ЕТК-Клуб"</b></a> и получить привилегированный аккаунт
+                                Нет аккаунта? Вы можете <a href=""><b>стать участником программы "ЕТК-Клуб"</b></a> и получить привилегированный аккаунт
                             </div>
                         </div>
                  </div>

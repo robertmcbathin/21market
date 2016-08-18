@@ -41,7 +41,7 @@
                     <h3>Интернет-магазин</h3>
                     <p>Здесь вы можете заказать интересующий Вас товар из каталога</p>
                     <p>
-                        <a href="{{route('shop')}}" class="btn btn-primary" role="button">Перейти в Интернет-магазин</a>
+                        <a href="{{route('shop')}}" class="btn" role="button">Перейти в Интернет-магазин</a>
                     </p>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                     <h3>Портал совместных покупок</h3>
                     <p>К сожалению, данный раздел пока не активен.</p>
                     <p>
-                        <a href="#" class="btn btn-primary" role="button" disabled>Перейти на портал</a>
+                        <a href="#" class="btn" role="button" disabled>Перейти на портал</a>
                     </p>
                 </div>
             </div>

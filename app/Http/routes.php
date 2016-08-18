@@ -29,6 +29,17 @@ Route::group(['middleware' => ['web']], function(){
     //REGISTRATION
     Route::get('/signup',  'UserController@getSignUp');
     Route::post('/signup', 'UserController@postSignUp');
-
+    /*ADD TO CART*/
+    Route::get('/add-to-cart/{id}', [
+        'uses' => 'ProductController@getAddToCart',
+        'as' => 'product.addToCart'
+        ]);
+    /**/
+    /*ADD TO CART*/
+    Route::get('/shopping-cart', [
+        'uses' => 'ProductController@getCart',
+        'as' => 'product.shoppingCart'
+        ]);
+    /**/
 });
 

@@ -128,10 +128,15 @@ footer li{
     margin-bottom: 10px;
 }
 .main-btn{
+    color: #fff;
     background-color: #60af97;
     border-color: #549e7f;
 }
 .main-btn.active{
+    background-color: #517f6a;
+    border-color: #549e7f;
+}
+.main-btn:hover{
     background-color: #517f6a;
     border-color: #549e7f;
 }
@@ -156,4 +161,24 @@ a{
 a:hover{
     color: #549e7f;
     cursor: pointer;
+}
+.thumbnail{
+    border: none;
+    text-align: center;
+}
+.thumbnail a{
+    background-color: #60AF97;
+    border: 1px solid #549e7f;
+    color:#fff;
+}
+.thumbnail a:hover{
+    background-color: #549e7f;
+    border: 1px solid #549e7f;
+    color:#fff;
+}
+.navbar-inverse .navbar-toggle {
+    border-color: #549e7f;
+}
+.navbar-inverse .navbar-toggle:hover{
+    background-color: #549e7f;
 }

@@ -28,6 +28,12 @@
 
         @if (Auth::user() == NULL)
         <li>
+            <a href="{{ route('product.shoppingCart') }}" class="m55-fonted">
+              <i class="fa fa-shopping-cart"></i> Корзина
+              <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
+            </a>
+        </li>
+        <li>
           <a href="/login" ><b>Вход</b></a>
             <ul id="login-dp" class="dropdown-menu">
                 <li>
@@ -37,7 +43,10 @@
         </li>
         @else
         <li>
-            <a href="/shop/cart" class="m55-fonted"><i class="fa fa-shopping-cart"></i> Корзина</a>
+            <a href="/shop/cart" class="m55-fonted">
+              <i class="fa fa-shopping-cart"></i> Корзина
+              <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
+            </a>
         </li>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><b>{{Auth::user()->first_name}}</b> <b>{{Auth::user()->second_name}}</b> <span class="caret"></span></a>
