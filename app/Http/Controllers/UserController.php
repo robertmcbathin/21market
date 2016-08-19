@@ -79,4 +79,33 @@ class UserController extends Controller
     {
         return view('auth.register');
     }
+    public function postCallbackByUser(Request $request)
+    {
+      $this->validate($request,[
+        'message' => 'required|min:1'
+      ]);
+      $message = $request['message'];
+      $user_id = $request['id'];
+      if (DB::table('callbacks')
+        ->insert([
+          'message' => $message,
+          'user_id' => $user_id
+          ]))
+        return redirect()->back();
+    }
+    public function postCallback(Request $request)
+    {
+      $this->validate($request,[
+        'phone'   => 'required',
+        'message' => 'required|min:1'
+      ]);
+      $message = $request['message'];
+      $phone = $request['phone'];
+      if (DB::table('callbacks')
+        ->insert([
+          'message' => $message,
+          'phone' => $phone
+          ]))
+        return redirect()->back();
+    }
 }

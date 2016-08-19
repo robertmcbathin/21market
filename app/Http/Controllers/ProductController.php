@@ -60,4 +60,31 @@ class ProductController extends Controller
         'products' => $cart->items, 
         'totalPrice' => $cart->totalPrice]);
     }
+    public function getSubcategoryList($id)
+    {
+      $subcategory = DB::table('subcategories')
+                       ->where('id',$id)
+                       ->where('is_show',1)
+                       ->first();
+      if ($subcategory !== null)
+      {
+        $products = DB::table('products')
+                       ->where('subcategory_id',$id)
+                       ->where('published',1)
+                       ->get();
+      }
+      return view('shop.show_subcategory_products',[
+        'subcategory' => $subcategory,
+        'products' => $products 
+        ]);
+    }
+    public function getProduct($id)
+    {
+      if($product = Product::find($id))
+        {
+          return view('shop.product',[
+            'product' => $product
+            ]);
+        }
+    }
 }

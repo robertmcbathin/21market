@@ -112,6 +112,9 @@
                     @endif
                     @endforeach
                 </div>
+                <div class="row">
+                    <a href="/subcategory/{{ $subcategory->id }}/show" class="btn btn-primary pull-right">Показать все</a>
+                </div>
                 @endif
               @endforeach
             </div>
