@@ -51,7 +51,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Номер телефона</label>
                             <div class="col-md-9 col-sm-6 col-xs-12">
                                 <input type="text" id="phone" name="phone" required="required" class="form-control col-md-9 col-xs-12" size="15" maxlength="15" placeholder="Введите Ваш номер телефона"></div>
-                        </div>
+                        </div>br
                         <div class="form-group {{ $errors->
                             has('message') ? 'has-error' : ''}}">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="message">Сообщение</label>
