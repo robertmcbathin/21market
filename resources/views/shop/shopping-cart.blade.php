@@ -20,34 +20,44 @@
     <div class="col-md-9">
     @if(Session::has('cart'))
       <div class="row">
-          <div class="col-sm-6 col-md-6">
-              <ul class="list-group">
+        <h1>Корзина</h1>
+          <div class="col-sm-12 col-md-12">
+              <table class="table">
+              <tr>
+                <th>Наименование</th>
+                <th>Цена</th>
+                <th>Количество</th>
+                <th></th>
+              </tr>
                   @foreach ($products as $product)
-                    <li class="list-group-item">
-                        <span class="badge">{{ $product['qty'] }}</span>
-                        <strong>{{ $product['item']['name'] }}</strong>
-                        <span class="label label-success">{{ $product['price'] }}</span>
+                  <tr>
+                        <td><strong>{{ $product['item']['name'] }}</strong></td>
+                        <td>{{ $product['price'] }}</td>
+                        <td>{{ $product['qty'] }}</td>
+                        <td>
                         <div class="btn-group">
-                            <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+                            <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">Действие <span class="caret"></span></button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Reduce by 1</a></li>
-                                <li><a href="#">Reduce All</a></li>
+                                <li><a href="#">Убрать 1</a></li>
+                                <li><a href="#">Убрать все</a></li>
                             </ul>
                         </div>
-                    </li>
+                      </td>
+                  </tr>
                   @endforeach
-              </ul>
+              </table>
           </div>
       </div>
+
       <div class="row">
           <div class="col-sm-6 col-md-6">
-            <strong>Total: {{ $totalPrice }}</strong>
+            <strong>Итого: {{ $totalPrice }}</strong>
           </div>
       </div>
       <hr>
       <div class="row">
           <div class="col-sm-6 col-md-6">
-            <button type="button" class="btn btn-success">Checkout</button>
+            <button type="button" class="btn btn-success">Подтвердить</button>
           </div>
       </div>
     @else
