@@ -6,8 +6,21 @@
     font-family: 'Exo 2 Regular';
     src: url(/src/fonts/Exo2-Regular.otf);
 }
+@font-face{
+    font-family: 'Exo 2 Medium';
+    src: url(/src/fonts/Exo2-Medium.otf);
+}
 body{
-    font-family: 'Exo 2 Regular';
+    font-family: 'Exo 2 Medium';
+}
+footer{
+    text-align: center;
+    color: #5790c1;
+    min-height: 200px;
+    height: auto;
+}
+footer li{
+    list-style: none;
 }
 .navbar-inverse{
 	background-color: #5790c1;
@@ -101,6 +114,42 @@ body{
 }
 .phone-holder p{
     margin: 0;
-    font-size: 24px;
-    font-family: 'Exo 2 Bold;
+    font-size: 20px;
+    font-family: 'Exo 2 Bold';
+}
+.categories h1, h2{
+  text-transform: uppercase;
+}
+.categories h1{
+  margin-top: 30px;
+}
+.categories h2{
+  text-indent: 1em;
+}
+.categories h4{
+  margin-bottom: 15px;
+}
+nav.affix li,a{
+    text-transform: uppercase;
+    font-size: ;
+}
+.bs-docs-sidebar .nav>li>a {
+    font-size: 18px;
+}
+.bs-docs-sidebar .nav .nav>li>a {
+    font-size: 15px;
+}
+.bs-docs-sidebar .nav>.active:focus>a, .bs-docs-sidebar .nav>.active:hover>a, .bs-docs-sidebar .nav>.active>a {
+  color: #337ab7;
+  border-left: 2px solid #337ab7;
+}
+.bs-docs-sidebar .nav>li>a:hover {
+  color: #5790c1;
+  border-left: 1px solid #5790c1;
+}
+.etk-label-price{
+    height: 15px !important;
+}
+.etk-price{
+    padding-right: .7em;
 }

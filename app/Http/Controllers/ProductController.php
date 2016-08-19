@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Cart;
+use App\Order;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -15,14 +16,18 @@ class ProductController extends Controller
     public function getMainPage()
     {
       $сategories    = DB::table('categories')
+                          ->where('is_show',1)
                           ->orderBy('name', 'asc')
                           ->get();
       $subсategories = DB::table('subcategories')
+                          ->where('is_show',1)
                           ->orderBy('name', 'asc')
                           ->get();
       $products      = DB::table('products')
                           ->where('priority','<=',3)
-      				      ->orderBy('priority', 'asc')
+                          ->where('published',1)
+                          ->where('in_stock','<=', 3)
+      				            ->orderBy('priority', 'asc')
                           ->get();
       $banners      = DB::table('banners')
                         ->where('show_in', 1)
