@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Auth;
 use DB;
 use App\Http\Requests;
-
+use Session;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -60,7 +60,7 @@ class UserController extends Controller
                          ->where('num',$card_number)
                          ->first();
               /**/
-              if (Auth::attempt(['card_id' => $card->id, 'password' => $password],$remember)){
+              if (Auth::attempt(['card_id' => $card->id, 'password' => $password])){
                 return redirect()->intended('/');
               };
 
@@ -72,6 +72,9 @@ class UserController extends Controller
     }
     public function getLogOut()
     {
+        if (Session::has('cart')){
+          Session::forget('cart');
+        }
         Auth::logout();
         return redirect()->route('home');
     }
@@ -79,6 +82,7 @@ class UserController extends Controller
     {
         return view('auth.register');
     }
+    /*CALLBACKS*/
     public function postCallbackByUser(Request $request)
     {
       $this->validate($request,[
@@ -107,5 +111,46 @@ class UserController extends Controller
           'phone' => $phone
           ]))
         return redirect()->back();
+    }
+    /*-------**/
+    /*DESIRES*/
+    public function postDesireByUser(Request $request)
+    {
+      $this->validate($request,[
+        'message' => 'required|min:1'
+      ]);
+      $message = $request['message'];
+      $user_id = $request['id'];
+      if (DB::table('desires')
+        ->insert([
+          'message' => $message,
+          'user_id' => $user_id
+          ]))
+        return redirect()->back();
+    }
+    public function postDesire(Request $request)
+    {
+      $this->validate($request,[
+        'phone'   => 'required',
+        'message' => 'required|min:1'
+      ]);
+      $message = $request['message'];
+      $phone = $request['phone'];
+      if (DB::table('desires')
+        ->insert([
+          'message' => $message,
+          'phone' => $phone
+          ]))
+        return redirect()->back();
+    }
+    /*-------*/
+    public function getProfile()
+    {
+      $orders = Auth::user()->orders;
+      $orders->transform(function($order, $key){
+        $order->cart = unserialize($order->cart);
+        return $order;
+      });
+      return view('profile', ['orders' => $orders]);
     }
 }

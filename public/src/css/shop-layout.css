@@ -154,8 +154,10 @@ nav.affix li,a{
 }
 .etk-price{
     padding-right: .7em;
->>>>>>> eae17cf55d7265289e763ff0f70325bb26f94c70
 }
 .modal-body{
     min-height: 120px;
+}
+.desires{
+    text-align: center;
 }

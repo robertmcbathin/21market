@@ -6,7 +6,7 @@ use App\Product;
 use App\Cart;
 use App\Order;
 use Illuminate\Http\Request;
-
+use Auth;
 use App\Http\Requests;
 use DB;
 use Session;
@@ -49,6 +49,36 @@ class ProductController extends Controller
       $request->session()->put('cart', $cart);
       return redirect()->back();
     }
+
+    public function getReduceByOne($id)
+    {
+      $oldCart = Session::has('cart') ? Session::get('cart') : null;
+      $cart = new Cart($oldCart);
+      $cart->reduceByOne($id);
+
+      if (count($cart->items) > 0){
+        Session::put('cart', $cart);
+      } else {
+        Session::forget('cart');
+      }
+      return redirect()->route('product.shoppingCart');
+    }
+
+    public function getRemoveItem($id)
+    {
+      $oldCart = Session::has('cart') ? Session::get('cart') : null;
+      $cart = new Cart($oldCart);
+      $cart->removeItem($id);
+
+      if (count($cart->items) > 0){
+        Session::put('cart', $cart);
+      } else {
+        Session::forget('cart');
+      }
+      
+      return redirect()->route('product.shoppingCart');
+    }
+
     public function getCart()
     {
       if (!Session::has('cart')){
@@ -86,5 +116,87 @@ class ProductController extends Controller
             'product' => $product
             ]);
         }
+    }
+    public function getConfirm()
+    {
+      if (!Session::has('cart')){
+        return view('shop.shopping-cart');
+      }
+      $oldCart = Session::get('cart');
+      $cart = new Cart($oldCart);
+      $total = $cart->totalPrice;
+      return view('shop.confirm',[
+        'products' => $cart->items, 
+        'total' => $total
+        ]);
+    }
+    public function getConfirmed()
+    {
+      return view('shop.confirmed');
+    }
+    public function postConfirm(Request $request)
+    {
+      if (!Session::has('cart')){
+        return view('shop.shopping-cart');
+      }
+      $oldCart = Session::get('cart');
+      $cart = new Cart($oldCart);
+
+      $order = new Order();
+      $order->cart = serialize($cart);
+      $order->user_id = $request['user_id'];
+      $order->payment_type = $request['payment_type'];
+      $order->delivery_type = $request['delivery_type'];
+      $order->delivery_point = $request['delivery_point'];
+      $order->status = $request['status'];
+      
+      Auth::user()->orders()->save($order);
+      Session::forget('cart');
+      Session::put('is_success', 'true');
+      return redirect()->route('shop.confirmed');
+    }
+    public function getFastConfirm()
+    {
+      if (!Session::has('cart')){
+        return view('shop.shopping-cart');
+      }
+      $oldCart = Session::get('cart');
+      $cart = new Cart($oldCart);
+      $total = $cart->totalPrice;
+      return view('shop.fast-confirm',[
+        'products' => $cart->items, 
+        'total' => $total
+        ]);
+    }
+     public function getFastConfirmed()
+    {
+      return view('shop.fast-confirmed');
+    }
+    public function postFastConfirm(Request $request)
+    {
+      if (!Session::has('cart')){
+        return view('shop.shopping-cart');
+      }
+      $oldCart = Session::get('cart');
+      $cart = new Cart($oldCart);
+
+      $order = new Order();
+      $order->cart = serialize($cart);
+      $order->phone = $request['phone'];
+      $order->payment_type = $request['payment_type'];
+      $order->delivery_type = $request['delivery_type'];
+      $order->delivery_point = $request['delivery_point'];
+      $order->status = $request['status'];
+      
+      DB::table('orders')->insert([
+        'cart' => $order->cart,
+        'phone' => $order->phone,
+        'status' => $order->status,
+        'delivery_type' => $order->delivery_type,
+        'delivery_point' => $order->delivery_point,
+        'payment_type' => $order->payment_type]);
+      Session::forget('cart');
+      Session::put('is_success', 'true');
+      return redirect()->route('shop.fast-confirmed');
     }
 }

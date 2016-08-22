@@ -10,7 +10,7 @@
     <meta name="author" content="mercile55">
 
     <title>@yield('title')</title>
-
+    <link rel="icon" href="{{ URL::to('src/images/favicon.ico') }}" type="image/x-icon" />
     <!-- Bootstrap Core CSS -->
     <link href="{{ URL::to('src/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ URL::to('src/css/font-awesome.min.css') }}" rel="stylesheet">

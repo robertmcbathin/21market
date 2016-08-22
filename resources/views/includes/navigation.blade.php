@@ -8,27 +8,27 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="/shop">
                 <img src="{{ URL::to('src/images/21market-logo.png') }}" alt="" width="30px"></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#" class="m55-fonted">О компании</a>
+                    <a href="{{ route('shop.about') }}">О магазине</a>
                 </li>
                 <li>
-                    <a href="#" class="m55-fonted">Как заказать?</a>
+                    <a href="{{ route('shop.how-to-order') }}">Как заказать?</a>
                 </li>
                 <li>
-                    <a href="#" class="m55-fonted">Доставка</a>
+                    <a href="{{ route('shop.delivery-points') }}">Пункты самовывоза</a>
                 </li>
             </ul>
        <ul class="nav navbar-nav navbar-right">
 
         @if (Auth::user() == NULL)
         <li>
-            <a href="{{ route('product.shoppingCart') }}" class="m55-fonted">
+            <a href="{{ route('product.shoppingCart') }}" >
               <i class="fa fa-shopping-cart"></i> Корзина
               <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
             </a>
@@ -43,16 +43,19 @@
         </li>
         @else
         <li>
-            <a href="/shop/cart" class="m55-fonted">
+            <a href="{{ route('product.shoppingCart') }}">
               <i class="fa fa-shopping-cart"></i> Корзина
               <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
             </a>
         </li>
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><b>{{Auth::user()->first_name}}</b> <b>{{Auth::user()->second_name}}</b> <span class="caret"></span></a>
-            <ul id="login-dp" class="dropdown-menu">
+            <a href="{{ route('profile') }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <b>{{Auth::user()->first_name}}</b> <b>{{Auth::user()->second_name}}</b> <span class="caret"></span></a>
+            <ul  class="dropdown-menu">
                 <li>
-                     <a href="/logout" class="m55-fonted">>Выйти</a>
+                     <a href="{{route('profile')}}" >Личный кабинет</a>
+                </li>
+                <li>
+                     <a href="/logout" >Выйти</a>
                 </li>
             </ul>
         </li>

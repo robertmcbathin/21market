@@ -65,7 +65,8 @@
           });
          });
         $(function () {
-          $('[data-toggle="tooltip"]').tooltip()
+            $('[data-toggle="confirm-tooltip"]').tooltip();
+          $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
 </body>

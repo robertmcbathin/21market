@@ -1,21 +1,22 @@
+<hr>
 <div class="row">
-    <div class="col-lg-6 phone-holder">
-        <p> <i class="fa fa-phone"></i>
-            (8352) 21-33-77
-            <button class="btn btn-primary" data-toggle="modal" data-target="#order-call">Заказать обратный звонок!</button>
+    <div class="col-lg-12 desires">
+        <p>
+            Не нашли то, что искали?
+            <button class="btn btn-primary" data-toggle="modal" data-target="#desire-modal">Напишите нам!</button>
         </p>
     </div>
     @if (Auth::user())
-    <div class="modal fade" tabindex="-1" role="dialog" id="order-call">
+    <div class="modal fade" tabindex="-1" role="dialog" id="desire-modal">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title">Закажите обратный звонок!</h4>
+                    <h4 class="modal-title">Что бы Вы хотели видеть в ассортименте нашего магазина?</h4>
                 </div>
-                <form action="{{route('modals.callbyuser.post')}}" method="POST">
+                <form action="{{route('modals.desirebyuser.post')}}" method="POST">
                 <div class="modal-body">
                         <div class="form-group {{ $errors->
                             has('message') ? 'has-error' : ''}}">
@@ -35,16 +36,16 @@
             <!-- /.modal-content --> </div>
         <!-- /.modal-dialog --> </div>
     @else
-    <div class="modal fade" tabindex="-1" role="dialog" id="order-call">
+    <div class="modal fade" tabindex="-1" role="dialog" id="desire-modal">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title">Закажите обратный звонок!</h4>
+                    <h4 class="modal-title">Что бы Вы хотели видеть в ассортименте нашего магазина?</h4>
                 </div>
-                <form action="{{route('modals.call.post')}}" method="POST">
+                <form action="{{route('modals.desire.post')}}" method="POST">
                 <div class="modal-body">
                     <div class="form-group {{ $errors->
                             has('phone') ? 'has-error' : ''}}">
@@ -81,3 +82,4 @@
         </div>
     </div> -->
 </div>
+<hr>

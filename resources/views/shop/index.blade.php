@@ -25,6 +25,7 @@
                     <a href="/sp">Совместные покупки</a>
                 </button>
             </div>-->
+            @include('sections.desires')
             <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
                 <ul class="nav bs-docs-sidenav">
                     @foreach ($categories as $category)
@@ -49,19 +50,7 @@
         </div>
 
         <div class="col-md-9">
-            <div class="row">
-                <div class="col-lg-6 phone-holder">
-                    <p> <i class="fa fa-phone"></i>(8352) 21-33-77  <button class="btn btn-primary">Заказать обратный звонок!</button></p>
-                </div>
-                <div class="col-lg-6">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Поиск товара...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-                        </span>
-                    </div>
-                </div>
-              </div>
+            @include('sections.search')
               <hr>
             <div class="row carousel-holder" id="perfume">
 
@@ -79,10 +68,6 @@
                             <div class="item active">
                                 <img class="slide-image" src="{{$banner->
                                 path_to_img}}" alt="" width="800" height="300">
-                                <div class="carousel-caption">
-                                    <h3>{{ $banner->title }}</h3>
-                                    <p>{{ $banner->description }}</p>
-                                </div>
                             </div>
                             @endforeach
                         </div>
@@ -113,155 +98,12 @@
                     @endforeach
                 </div>
                 <div class="row">
-                    <a href="/subcategory/{{ $subcategory->id }}/show" class="btn btn-primary pull-right">Показать все</a>
+                    <a href="/shop/subcategory/{{ $subcategory->id }}/show" class="btn btn-primary pull-right">Показать все</a>
                 </div>
                 @endif
               @endforeach
             </div>
             @endforeach
-
-            <div class="row" id="women-perfume">
-
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <div class="thumbnail">
-                        <img src="http://placehold.it/320x150" alt="">
-                        <div class="caption" >
-                            <h4 class="pull-right">$24.99</h4>
-                            <h4>
-                                <a href="#">First Product</a>
-                            </h4>
-                            <p>
-                                See more snippets like this online store item at
-                                <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>
-                                .
-                            </p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">15 reviews</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <div class="thumbnail">
-                        <img src="http://placehold.it/320x150" alt="">
-                        <div class="caption">
-                            <h4 class="pull-right">$64.99</h4>
-                            <h4>
-                                <a href="#">Second Product</a>
-                            </h4>
-                            <p>
-                                This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">12 reviews</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <div class="thumbnail">
-                        <img src="http://placehold.it/320x150" alt="">
-                        <div class="caption">
-                            <h4 class="pull-right">$74.99</h4>
-                            <h4>
-                                <a href="#">Third Product</a>
-                            </h4>
-                            <p>
-                                This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">31 reviews</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <div class="thumbnail">
-                        <img src="http://placehold.it/320x150" alt="">
-                        <div class="caption">
-                            <h4 class="pull-right">$84.99</h4>
-                            <h4>
-                                <a href="#">Fourth Product</a>
-                            </h4>
-                            <p>
-                                This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">6 reviews</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <div class="thumbnail">
-                        <img src="http://placehold.it/320x150" alt="">
-                        <div class="caption">
-                            <h4 class="pull-right">$94.99</h4>
-                            <h4>
-                                <a href="#">Fifth Product</a>
-                            </h4>
-                            <p>
-                                This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">18 reviews</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <h4>
-                        <a href="#">Like this template?</a>
-                    </h4>
-                    <p>
-                        If you like this template, then check out
-                        <a target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this tutorial</a>
-                        on how to build a working review system for your online store!
-                    </p>
-                    <a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
-                </div>
-
-            </div>
 
         </div>
 
