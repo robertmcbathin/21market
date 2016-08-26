@@ -41,6 +41,15 @@
                 </li>
             </ul>
         </li>
+        <li><a href="#" class="divider">|</a></li>
+        <li>
+          <a href="/signup" ><b>Регистрация</b></a>
+            <ul id="login-dp" class="dropdown-menu">
+                <li>
+                     
+                </li>
+            </ul>
+        </li>
         @else
         <li>
             <a href="{{ route('product.shoppingCart') }}">
