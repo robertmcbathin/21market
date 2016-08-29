@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-21market
+Вход | 21market
 @endsection
 
 @section('content')

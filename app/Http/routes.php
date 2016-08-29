@@ -22,12 +22,14 @@ Route::group(['middleware' => ['web']], function(){
      	'uses' => 'PurchaseController@getMainPage', 
      	'as' => 'sp'
      	]);
+    Route::get('/eula', ['uses' => 'UserController@showEula', 'as' => 'eula']);
+    Route::get('/privacy', ['uses' => 'UserController@showPrivacyPolitics', 'as' => 'privacy']);
     // AUTHENTIFICATION 
     Route::get('/login',  'UserController@getLogIn');
     Route::post('/login', 'UserController@postLogIn');
     Route::get('/logout', 'UserController@getLogOut');
     //REGISTRATION
-    Route::get('/signup',  'UserController@getSignUp');
+    Route::get('/signup',  'UserController@getSignUp')->name('auth.signup');
     Route::post('/signup', 'UserController@postSignUp');
     /*ADD TO CART*/
     Route::get('/shop/add-to-cart/{id}', [

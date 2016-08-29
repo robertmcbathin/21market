@@ -18,6 +18,7 @@ footer{
     color: #5790c1;
     min-height: 200px;
     height: auto;
+    border-top: 2px solid #549e7f;
 }
 footer li{
     list-style: none;

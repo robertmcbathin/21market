@@ -14,6 +14,18 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class UserController extends Controller
 {
+  public $email;
+  protected $user;
+  public function generatePassword($length = 8)
+    {
+      $chars = 'abdefhiknrstyzABDEFGHKNQRSTYZ23456789';
+      $numChars = strlen($chars);
+      $string = '';
+      for ($i = 0; $i < $length; $i++) {
+        $string .= substr($chars, rand(1, $numChars) - 1, 1);
+      }
+      return $string;
+    }
     /**
      * Check the posted by user data and authorizing it
      *
@@ -25,7 +37,8 @@ class UserController extends Controller
         $auth_type = $request['auth_type'];
         switch ($auth_type){
             case 1:
-              $this->validate($request,[
+              $this->
+validate($request,[
                 'phone' => 'required',
                 'password' => 'required|min:4'
               ]);  
@@ -69,6 +82,75 @@ class UserController extends Controller
     public function getLogIn()
     {
         return view('auth.login');
+    }
+        public function getSignUp()
+    {
+        return view('auth.signup');
+    }
+
+     public function postSignUp (Request $request)
+    {
+      $this->validate($request,[
+        'second_name' => 'required|max:50',
+        'first_name' => 'required|max:50',
+        'dob' => 'date',
+        'phone' => 'required|max:15',
+        'email' => 'required|email|max:50'
+        ]);
+        /*INITIALIZING THE VARIABLES*/
+        $third_name = '';
+        $sex        = 'U';
+        $dob        = NULL;
+        /*--------------------------*/
+      /*----------------------*/
+      /*OWNER CREDENTIALS*/
+      $second_name = $request['second_name'];
+      $first_name  = $request['first_name'];
+      $third_name  = $request['third_name'];
+      $sex         = $request['sex'];
+      $dob         = $request['dob'];
+      /*-----------------*/
+      /*CONTACT INFORMATION*/
+      $phone = $request['phone'];
+      $email = $request['email'];
+      /*-------------------*/
+      $password_to_send = $this->generatePassword();
+      $password         = bcrypt($password_to_send);
+        /*SAVE TO DATABASE*/
+        DB::transaction(function() use ($password,$first_name,$second_name,$third_name,$sex,$dob,$phone,$email){
+                    /*ACTIVATE USER ACCOUNT*/
+         $new_user_id = DB::table('users')->insertGetId([
+              'username' => '',
+              'first_name' => $first_name,
+              'second_name' => $second_name,
+              'patronymic' => $third_name,
+              'email' => $email,
+              'phone' => $phone,
+              'sex' => $sex,
+              'dob' => $dob,
+              'password' => $password,
+              'card_id' => null,
+              'is_active' => 1
+          ]);
+          /*GET USER ROW*/
+                    $this->user = DB::table('users')
+                        ->where('id', $new_user_id)
+                        ->first();
+        });
+                    /*GET USER ROW*/
+                $user_id = $this->user->id;
+                $email   =$this->user->email;
+                /*MAIL ABOUT HOW GREAT THE SIGN UP WAS*/
+                Mail::send('emails.email_confirmed',
+                      ['user_id' => $user_id,
+                       'email' => $email,
+                       'password' => $password_to_send],
+                       function ($m) use ($email){
+                $m->from('activation@21market.ru', '21market');
+                $m->to($email)->subject('Успешная активация аккаунта на портале 21market');
+                });
+                /*------------------------------------*/
+              return redirect()->route('activation.ok');
     }
     public function getLogOut()
     {
@@ -152,5 +234,13 @@ class UserController extends Controller
         return $order;
       });
       return view('profile', ['orders' => $orders]);
+    }
+    public function showPrivacyPolitics()
+    {
+      return view('privacy');
+    }
+    public function showEula()
+    {
+      return view('eula');
     }
 }
