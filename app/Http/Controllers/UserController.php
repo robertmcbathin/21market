@@ -99,8 +99,8 @@ validate($request,[
         'second_name' => 'required|max:50',
         'first_name' => 'required|max:50',
         'dob' => 'date',
-        'phone' => 'required|max:15',
-        'email' => 'required|email|max:50'
+        'phone' => 'required|max:15|unique',
+        'email' => 'required|email|max:50|unique'
         ]);
         /*INITIALIZING THE VARIABLES*/
         $third_name = '';

@@ -8,9 +8,4 @@
       </div>
       <p class="lead">Ваша учетная запись активирована. Для авторизации на портале <a href="http://21market.ru" target="_blank">21market.ru</a> используйте реквизиты, высланные на указанную Вами электронную почту</p>
     </div>
-     <footer class="footer">
-      <div class="container">
-        <p class="text-muted">21market 2016</p>
-      </div>
-    </footer>
 @endsection
