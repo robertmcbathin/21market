@@ -12,9 +12,10 @@
 <div class="row">
     <div class="col-md-offset-3 col-md-6">
         <h1>Регистрация</h1>
+        <hr>
         <form action="{{ route('auth.signup') }}" method="post" id="join-form">
             <div class="owner-credentials">
-                <p>Личные данные</p>
+                <h3>Личные данные</h3>
                 <div class="input-group {{ $errors->
                     has('card_number') ? 'has-error' : ''}}">
                     <label for="second_name">Фамилия</label>
@@ -44,7 +45,7 @@
                     <input type="date" id="dob" name="dob" maxlength="10" class="form-control" size="10" placeholder="мм/дд/гггг"></div>
                 <hr></div>
             <div class="owner-private-data">
-                <p>Контактные данные</p>
+                <h3>Контактные данные</h3>
                 <div class="input-group {{ $errors->
                     has('card_number') ? 'has-error' : ''}}">
                     <label for="phone">Телефон</label>

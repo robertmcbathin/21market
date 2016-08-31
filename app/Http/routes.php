@@ -31,6 +31,7 @@ Route::group(['middleware' => ['web']], function(){
     //REGISTRATION
     Route::get('/signup',  'UserController@getSignUp')->name('auth.signup');
     Route::post('/signup', 'UserController@postSignUp');
+    Route::get('/account_activated', 'UserController@getActivationCallback')->name('activation.ok');
     /*ADD TO CART*/
     Route::get('/shop/add-to-cart/{id}', [
         'uses' => 'ProductController@getAddToCart',

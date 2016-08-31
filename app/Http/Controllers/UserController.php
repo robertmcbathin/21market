@@ -87,6 +87,10 @@ validate($request,[
     {
         return view('auth.signup');
     }
+    public function getActivationCallback()
+    {
+      return view('callbacks.activation_ok');
+    }
 
      public function postSignUp (Request $request)
     {
