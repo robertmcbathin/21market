@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
+use Mail;
 use App\Http\Requests;
 use Session;
 use App\Http\Controllers\Controller;
