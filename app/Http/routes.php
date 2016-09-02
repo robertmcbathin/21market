@@ -11,9 +11,7 @@
 |
 */
 Route::group(['middleware' => ['web']], function(){
-    Route::get('/', function () {
-    return view('index');
-     })->name('home');
+    Route::get('/', 'ProductController@getMainPage')->name('home');
     Route::get('/shop', [
      	'uses' => 'ProductController@getMainPage', 
      	'as' => 'shop'     
@@ -125,6 +123,26 @@ Route::group(['middleware' => ['web']], function(){
         return view('shop.delivery_points');
     })->name('shop.delivery-points');
 
+
+/*****************************
+******************************
+******************************
+******************************
+******MY-SHOP ROUTES**********
+******************************
+******************************
+******************************
+*****************************/
+Route::get('/my-shop/get_list_payment','MyShopController@getListPayment');
+/*****************************
+******************************
+******************************
+******************************
+******************************
+******************************
+******************************
+******************************
+*****************************/
 });
 Route::group(['middleware' => ['auth']], function(){
     /*PROFILE*/
