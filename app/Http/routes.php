@@ -151,5 +151,9 @@ Route::group(['middleware' => ['auth']], function(){
         'as' => 'profile'
         ]);
     /**/
+    Route::get('/remindMe/{product_id}',[
+        'uses' => 'UserController@getProfile',
+        'as' => 'product.remindMe'
+        ]);
     });
 

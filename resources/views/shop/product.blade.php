@@ -22,6 +22,13 @@
                   @include('sections.search')
               <hr>
             <div class="thumbnail">
+             <div class="rectangle">
+    @if ($product->partnershop_id == 1)
+    <img src="{{URL::to('/src/images/shop/partnershops/1.png')}}" alt="" width="30" height="30" data-toggle="partnershop-1" data-placement="top" title="Заказ будет обработан магазином 21market.ru">
+    @elseif ($product->partnershop_id == 2)
+    <img src="{{URL::to('/src/images/shop/partnershops/2.png')}}" alt="" width="30" height="30" data-toggle="partnershop-2" data-placement="top" title="Заказ будет обработан магазином my-shop.ru">
+    @endif
+  </div>
               <img src="{{ $product->path_to_img }}" alt="" height="300">
               <div class="caption-full">
                   <h4><a href="">{{$product->name}}</a></h4>
@@ -47,7 +54,7 @@
                           </div>
                           @elseif ($product->in_stock == 2)
                           <div class="pull-right">
-                            <a href="{{route('product.addToCart', ['id' => $product->id])}}" class="btn btn-primary"><i class="fa fa-calendar"></i> Заказать</a>
+                            <a href="{{route('product.addToCart', ['id' => $product->id])}}" class="btn btn-primary"><i class="fa fa-calendar"></i> Уведомить о поступлении</a>
                           </div>
                           @endif
               </div>

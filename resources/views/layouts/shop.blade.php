@@ -65,8 +65,10 @@
           });
          });
         $(function () {
-            $('[data-toggle="confirm-tooltip"]').tooltip();
+          $('[data-toggle="confirm-tooltip"]').tooltip();
           $('[data-toggle="tooltip"]').tooltip();
+          $('[data-toggle="partnershop-1"]').tooltip();
+          $('[data-toggle="partnershop-2"]').tooltip();
         });
     </script>
 </body>

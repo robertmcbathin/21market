@@ -2,9 +2,9 @@
 <div class="thumbnail">
   <div class="rectangle">
     @if ($product->partnershop_id == 1)
-    <img src="{{URL::to('/src/images/shop/partnershops/1.png')}}" alt="" width="30" height="30">
+    <img src="{{URL::to('/src/images/shop/partnershops/1.png')}}" alt="" width="30" height="30" data-toggle="partnershop-1" data-placement="top" title="Заказ будет обработан магазином 21market.ru">
     @elseif ($product->partnershop_id == 2)
-    <img src="{{URL::to('/src/images/shop/partnershops/2.png')}}" alt="" width="30" height="30">
+    <img src="{{URL::to('/src/images/shop/partnershops/2.png')}}" alt="" width="30" height="30" data-toggle="partnershop-2" data-placement="top" title="Заказ будет обработан магазином my-shop.ru">
     @endif
   </div>
   <div class="left_tri"></div>
@@ -33,7 +33,11 @@
                           </div>
                           @elseif ($product->in_stock == 2)
                           <div class="pull-right">
-                            <a href="{{route('product.addToCart', ['id' => $product->id])}}" class="btn btn-primary"><i class="fa fa-calendar"></i> Заказать</a>
+                            @if (Auth::user())
+                            <a href="{{route('product.remindMe', ['id' => $product->id])}}" class="btn btn-primary" data-toggle="remind-tooltip" data-placement="top" title="При поступлении товара мы Вас об этом оповестим!"><i class="fa fa-calendar"></i> Уведомить</a>
+                            @else
+                             <a href="#" class="btn btn-primary" data-toggle="remind-tooltip" data-placement="top" title="Функция доступна только для зарегистрированных пользователей" disabled><i class="fa fa-calendar"></i> Уведомить</a>
+                            @endif
                           </div>
                           @endif
                           </div>
