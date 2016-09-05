@@ -33,8 +33,8 @@
                           </div>
                           @elseif ($product->in_stock == 2)
                           <div class="pull-right">
-                            @if (Auth::user())
-                            <a href="{{route('product.remindMe', ['id' => $product->id])}}" class="btn btn-primary" data-toggle="remind-tooltip" data-placement="top" title="При поступлении товара мы Вас об этом оповестим!"><i class="fa fa-calendar"></i> Уведомить</a>
+                            @if ((Auth::user()))
+                            <a href="{{route('product.remindMe', ['product_id' => $product->id, 'user_id' => Auth::user()->id])}}" class="btn btn-primary" data-toggle="remind-tooltip" data-placement="top" title="При поступлении товара мы Вас об этом оповестим!"><i class="fa fa-calendar"></i> Уведомить</a>
                             @else
                              <a href="#" class="btn btn-primary" data-toggle="remind-tooltip" data-placement="top" title="Функция доступна только для зарегистрированных пользователей" disabled><i class="fa fa-calendar"></i> Уведомить</a>
                             @endif
