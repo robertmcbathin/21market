@@ -29,9 +29,6 @@ class ProductController extends Controller
                           ->where('in_stock','<=', 3)
       				            ->orderBy('priority', 'asc')
                           ->get();
-      $reminders     = DB::table('product_availability_reminders')
-      ->where('user_id', Auth::user()->id)
-      ->get();
       $banners      = DB::table('banners')
                         ->where('show_in', 1)
                         ->get();
@@ -39,8 +36,7 @@ class ProductController extends Controller
         'categories' => $сategories,
         'subcategories' => $subсategories,
         'products' => $products,
-        'banners'  => $banners,
-        'reminders' => $reminders
+        'banners'  => $banners
         ]);
     }
     public function getAddToCart(Request $request, $id)
