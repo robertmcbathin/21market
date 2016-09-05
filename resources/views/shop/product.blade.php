@@ -31,7 +31,7 @@
                           </div>
                           @elseif ($product->in_stock == 2)
                             <div class="pull-right">
-                            <span class="label label-primary">На заказ</span>
+                            <span class="label label-primary">Нет в наличии</span>
                           </div>
                           @endif
                   <p>{{$product->short_description}}</p>

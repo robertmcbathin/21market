@@ -1,5 +1,13 @@
 <div class="col-sm-4 col-lg-4 col-md-4">
 <div class="thumbnail">
+  <div class="rectangle">
+    @if ($product->partnershop_id == 1)
+    <img src="{{URL::to('/src/images/shop/partnershops/1.png')}}" alt="" width="30" height="30">
+    @elseif ($product->partnershop_id == 2)
+    <img src="{{URL::to('/src/images/shop/partnershops/2.png')}}" alt="" width="30" height="30">
+    @endif
+  </div>
+  <div class="left_tri"></div>
      <img src="{{ $product->path_to_img }}" alt="{{ $product->name }}" class="img-responsive" height="150" >
                         <div class="caption" >
                         <h4>
@@ -10,7 +18,7 @@
                           </div>
                           @elseif ($product->in_stock == 2)
                             <div class="pull-right">
-                            <span class="label label-primary">На заказ</span>
+                            <span class="label label-primary">Нет в наличии</span>
                           </div>
                           @endif
                           </h4>

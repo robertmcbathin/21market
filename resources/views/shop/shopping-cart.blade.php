@@ -24,6 +24,7 @@
       @if(Session::has('cart'))
       <div class="row">
         <h1>Корзина</h1>
+        <h2>21market <img src="{{ URL::to('/src/images/shop/partnershops/1.png') }}" alt=""></h2>
         <div class="col-sm-12 col-md-12">
           <table class="table">
             <tr>
