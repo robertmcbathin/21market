@@ -1,10 +1,4 @@
 <div class="row">
-    <div class="col-lg-6 phone-holder">
-        <p> <i class="fa fa-phone"></i>
-            (8352) 21-33-77
-            <button class="btn btn-primary" data-toggle="modal" data-target="#order-call">Заказать обратный звонок!</button>
-        </p>
-    </div>
     @if (Auth::user())
     <div class="modal fade" tabindex="-1" role="dialog" id="order-call">
         <div class="modal-dialog" role="document">
@@ -69,15 +63,4 @@
             <!-- /.modal-content --> </div>
         <!-- /.modal-dialog --> </div>
     @endif
-
-    <!-- /.modal -->
-   <!-- <div class="col-lg-6">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Поиск товара...">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button"> <i class="fa fa-search"></i>
-                </button>
-            </span>
-        </div>
-    </div> -->
 </div>

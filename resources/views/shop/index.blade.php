@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container m55-main-container">
 
     <div class="row">
 

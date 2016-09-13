@@ -193,3 +193,21 @@ nav.affix li,a{
     left:-30px;
     top:65px;
     z-index:-1;}
+    hr{
+        border-top: 1px solid #d0d0d0;
+    }
+.top-head{
+    position: fixed;
+    top:0;
+}
+.m55-header-top{
+    background: #f2f2f5;
+    padding-top: 10px;
+}
+.m55-main-container{
+    top:100px;
+}
+.m55-search{
+    margin-top: 10px;
+    margin-bottom:10px;
+}

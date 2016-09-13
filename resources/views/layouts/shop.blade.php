@@ -31,7 +31,6 @@
 </head>
 
 <body>
-
     <!-- Navigation -->
     @include('includes.navigation')
     <!-- Page Content -->
