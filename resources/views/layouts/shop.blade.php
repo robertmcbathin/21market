@@ -45,7 +45,19 @@
     <!-- /.container -->
     <!-- jQuery -->
     <script src="{{ URL::to('src/js/jquery.js') }}"></script>
-
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+  $( function() {
+    $( "#product-search" ).autocomplete({
+      source: "{{ route('shop.autocomplete.search') }},
+      select: function( event, ui ) {
+        log( ui.item ?
+          "Selected: " + ui.item.value + " aka " + ui.item.id :
+          "Nothing selected, input was " + this.value );
+      }
+    });
+  } );
+  </script>
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ URL::to('src/js/bootstrap.min.js') }}"></script>
     <script src="{{ URL::to('src/js/affix.js') }}"></script>

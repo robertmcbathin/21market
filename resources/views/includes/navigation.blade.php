@@ -87,7 +87,7 @@
         </div>
         <div class="col-md-6">
                   <div class="input-group m55-search">
-                     <input type="text" class="form-control" placeholder="Поиск товара..." size="50">
+                     <input id="product-search" type="text" class="form-control" placeholder="Поиск товара..." size="50">
                      <span class="input-group-btn">
                      <button class="btn btn-default" type="button"> <i class="fa fa-search"></i>
                      </button>

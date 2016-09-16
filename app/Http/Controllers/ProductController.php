@@ -206,4 +206,8 @@ class ProductController extends Controller
       Session::put('is_success', 'true');
       return redirect()->route('shop.fast-confirmed');
     }
+    public function getProductList()
+    {
+      
+    }
 }
