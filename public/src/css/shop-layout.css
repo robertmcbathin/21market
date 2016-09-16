@@ -193,7 +193,7 @@ nav.affix li,a{
     left:-30px;
     top:65px;
     z-index:-1;}
-    hr{
+hr{
         border-top: 1px solid #d0d0d0;
     }
 .top-head{
@@ -210,4 +210,20 @@ nav.affix li,a{
 .m55-search{
     margin-top: 10px;
     margin-bottom:10px;
+}
+.product-search-block{
+    width:65%;
+    height:80%;
+    top:100px;
+    background: rgba(255,255,255,.9);
+
+    z-index:99999;
+    position: fixed;
+    display: none;
+}
+#close-search-window{
+    cursor:pointer;
+}
+.bs-docs-sidebar.affix{
+    top:340px;
 }

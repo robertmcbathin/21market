@@ -30,6 +30,12 @@
 		</div>
 	</div>
 </div>
+<div class="product-search-block">
+	<p class="text-right">
+		<i class="fa fa-close fa-5x" id="close-search-window"></i>
+	</p>
+	<h1>Результаты поиска</h1>
+</div>
 </footer>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">

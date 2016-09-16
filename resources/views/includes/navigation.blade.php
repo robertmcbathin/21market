@@ -181,3 +181,7 @@
         </ul>
     </li>
 </ul> -->
+<script>
+  var token = '{{ Session::token() }}';
+  var url = '{{ route('shop.autocomplete.search') }}';
+</script>

@@ -208,6 +208,8 @@ class ProductController extends Controller
     }
     public function getProductList()
     {
-      
+      $q = strtolower($_GET["term"]);
+      $items = array();
+      return array('name' => 'Порошок', 'name' => 'Молоко');
     }
 }

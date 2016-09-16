@@ -47,9 +47,15 @@
     <script src="{{ URL::to('src/js/jquery.js') }}"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
+    $('#close-search-window').on('click', function(){
+      $('.product-search-block').hide();
+    });
   $( function() {
-    $( "#product-search" ).autocomplete({
-      source: "{{ route('shop.autocomplete.search') }},
+    $('#product-search').on('focus', function(){
+      $('.product-search-block').css("display", "block");
+    });
+    $( "#product-search" ).ajax({
+      source: url,
       select: function( event, ui ) {
         log( ui.item ?
           "Selected: " + ui.item.value + " aka " + ui.item.id :
