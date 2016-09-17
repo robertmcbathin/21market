@@ -214,8 +214,8 @@ hr{
 .product-search-block{
     width:65%;
     height:80%;
-    top:100px;
-    background: rgba(255,255,255,.9);
+    top:96px;
+    background: rgba(228,228,228,.95);
 
     z-index:99999;
     position: fixed;

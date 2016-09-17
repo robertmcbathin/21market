@@ -206,10 +206,16 @@ class ProductController extends Controller
       Session::put('is_success', 'true');
       return redirect()->route('shop.fast-confirmed');
     }
-    public function getProductList()
+    public function getProductList(Request $request)
     {
-      $q = strtolower($_GET["term"]);
-      $items = array();
-      return array('name' => 'Порошок', 'name' => 'Молоко');
+      $q = $request['q'];
+      $qToString = '%' . $q . '%';
+      $products = DB::table('products')
+                ->where('name', 'like',$qToString)
+                ->limit(10)
+                ->get();
+      if ($products !== NULL){
+        return response()->json(['message' => 'ok', 'products' => $products], 200);
+      }
     }
 }

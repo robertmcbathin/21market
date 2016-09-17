@@ -49,18 +49,47 @@
     <script>
     $('#close-search-window').on('click', function(){
       $('.product-search-block').hide();
+      $('.search-overlay').hide();
     });
   $( function() {
+    /*ajax product search*/
+    $('#product-search').on('keyup', function(){
+      console.log($('#product-search').val());
+      $.ajax({
+          method: 'POST',
+          url: url,
+          data: {q: $('#product-search').val(), 
+                 _token: token}
+        })
+        .done(function(msg){
+          console.log(JSON.stringify(msg));
+          if ((msg['message']) == 'ok'){
+            var i = 0, html = '';
+            products = msg['products'];
+            while (i <= products.length){
+              html = html + '<div class="container">' 
+                          + '<div class="col-md-3 thumbnail">'
+                          + '<img src="' + products[i].path_to_img + '" height="50">'
+                          + '</div>'
+                          + '<div class="col-md-9 thumbnail">'
+                          + '<p class="text-left">' + products[i].name + '</p>' 
+                          + '<hr>'
+                          + '</div>'
+                          + '</div>'
+              $('#search-results').html(html);
+              i++;
+            }
+          };
+          if ((msg['message']) == 'success'){
+            $('.card-group').removeClass('has-error');
+            $('.card-group').addClass('has-success');
+          };
+        });
+    });
+    /*--------------*/
     $('#product-search').on('focus', function(){
       $('.product-search-block').css("display", "block");
-    });
-    $( "#product-search" ).ajax({
-      source: url,
-      select: function( event, ui ) {
-        log( ui.item ?
-          "Selected: " + ui.item.value + " aka " + ui.item.id :
-          "Nothing selected, input was " + this.value );
-      }
+      $('.search-overlay').css("display", "block");
     });
   } );
   </script>

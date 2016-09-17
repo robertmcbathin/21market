@@ -122,8 +122,8 @@ Route::group(['middleware' => ['web']], function(){
     Route::get('/shop/delivery-points',function(){
         return view('shop.delivery_points');
     })->name('shop.delivery-points');
- /********AUTOCOMLETE ROUTES*********/
- Route::get('/shop/search-product',[
+ /********AUTOCOMPLETE ROUTES*********/
+ Route::post('/shop/search-product',[
     'uses' => 'ProductController@getProductList',
     'as' => 'shop.autocomplete.search'
     ]);
