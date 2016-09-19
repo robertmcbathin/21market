@@ -3,20 +3,15 @@
 	<div class="row">
 		<div class="col-md-4 col-sm-12">
 			<ul>
-                    <a href="{{ route('shop.about') }}">О магазине</a>
-                </li>
-                <li>
-                    <a href="{{ route('shop.how-to-order') }}">Как заказать?</a>
-                </li>
-                <li>
-                    <a href="{{ route('shop.delivery-points') }}">Пункты самовывоза</a>
-                </li>
+			  <li>О магазине</li>
+			  <li>Как заказать?</li>
+			  <li>Доставка и самовывоз</li>
 			</ul>
 		</div>
 		<div class="col-md-4 col-sm-12">
 			<ul>
-			  <li><a href="{{ URL::to('/shop') }}">Магазин</a></li>
-			  <li><a href="#">Совместные покупки</a></li>
+			  <li>Магазин</li>
+			  <li>Совместные покупки</li>
 			</ul>
 		</div>
 		<div class="col-md-4 col-sm-12">
@@ -33,15 +28,6 @@
 		<div class="col-lg-12">
 			<p><strong>21market.ru | 2016</strong></p>
 		</div>
-	</div>
-</div>
-<div class="product-search-block">
-<p class="text-right">
-		<i class="fa fa-close fa-5x" id="close-search-window"></i>
-	</p>
-	<h1>Результаты поиска </h1>
-	<div id="search-results">
-		
 	</div>
 </div>
 </footer>

@@ -31,14 +31,14 @@
 <body>
 
     <!-- Navigation -->
-    @include('includes.navigation')
+    @include('includes.entry_navigation')
 
     <!-- Page Content -->
     @yield('content')
     <!-- /.container -->
 
     <!-- Footer -->
-    @include('includes.footer')
+    @include('includes.login_footer')
     <!-- /.container -->
     <!-- jQuery -->
     <script src="{{ URL::to('src/js/jquery.js') }}"></script>
