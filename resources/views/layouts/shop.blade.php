@@ -67,15 +67,25 @@
             var i = 0, html = '';
             products = msg['products'];
             while (i <= products.length){
+              if (products[i].in_stock == 1){
+                inStock = '<span class="label label-success">' + 'В наличии' + '</span>'; 
+              } else if (products[i].in_stock == 2){
+                inStock = '<span class="label label-primary">' + 'Нет в наличии' + '</span>'; 
+              }
               html = html + '<div class="container">' 
-                          + '<div class="col-md-3 thumbnail">'
-                          + '<img src="' + products[i].path_to_img + '" height="50">'
+                          + '<div class="col-md-12">'
+                          + '<div class="col-md-6">'
+                          + '<a target="_blank" href="/shop/product/' + products[i].id + '/show">' + products[i].name + '</a>' 
                           + '</div>'
-                          + '<div class="col-md-9 thumbnail">'
-                          + '<p class="text-left">' + products[i].name + '</p>' 
+                          + '<div class="col-md-3">'
+                          + inStock
+                          + '</div>'
+                          + '<div class="col-md-3">'
+                          + products[i].price + ' <i class="fa fa-rub"></i> <span class="label label-warning etk-price" data-toggle="tooltip" data-placement="top" title="Цена для членов ЕТК-Клуба"><img src="/src/images/etk-club-logo-static-32.png" class="etk-label-price"> ' + products[i].price_by_card + '<i class="fa fa-rub"></i> </span>' 
+                          + '</div>'
+                          + '</div>'
+                          + '</div>'
                           + '<hr>'
-                          + '</div>'
-                          + '</div>'
               $('#search-results').html(html);
               i++;
             }
