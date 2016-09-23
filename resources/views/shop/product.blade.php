@@ -22,7 +22,12 @@
             </div>
         </div>
         <div class="col-md-9">
-                  @include('sections.search')
+                  <ol class="breadcrumb">
+                    <li><a href="{{ route('shop') }}">Главная</a></li>
+                    <li><a href="/shop/category/{{ $bc_category->id }}/show"">{{ $bc_category->name }}</a></li>
+                    <li><a href="/shop/subcategory/{{ $bc_subcategory->id }}/show">{{ $bc_subcategory->name }}</a></li>
+                    <li class="active">{{ $product->name }}</li>
+                  </ol>
               <hr>
             <div class="thumbnail">
              <div class="rectangle">
@@ -47,6 +52,10 @@
                           @endif
                   <p>{{$product->short_description}}</p>
                   <p>{{$product->long_description}}</p>
+                  <hr>
+                  @foreach ($tags as $tag)
+                    <span class="label label-primary">{{ $tag->name }}</span>
+                  @endforeach
                    <hr>
                           <h4 class="pull-left">
                             {{ $product->price }} <i class="fa fa-rub"></i>

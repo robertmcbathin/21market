@@ -109,18 +109,38 @@ class ProductController extends Controller
                        ->where('subcategory_id',$id)
                        ->where('published',1)
                        ->get();
+        $bc_category = DB::table('categories')
+                            ->where('id',$subcategory->category_id)
+                            ->first();
       }
+
       return view('shop.show_subcategory_products',[
         'subcategory' => $subcategory,
-        'products' => $products 
+        'products' => $products,
+        'bc_category' => $bc_category
         ]);
     }
     public function getProduct($id)
     {
       if($product = Product::find($id))
         {
+          $tags = DB::table('product-tag')
+            ->join('product_tags', 'product-tag.tag_id', '=', 'product_tags.id')
+            ->select('product-tag.tag_id as id',
+                      'product_tags.name as name')
+            ->where('product-tag.product_id', $id)
+            ->get();
+          $bc_subcategory = DB::table('subcategories')
+                            ->where('id',$product->subcategory_id)
+                            ->first();
+          $bc_category = DB::table('categories')
+                            ->where('id',$bc_subcategory->category_id)
+                            ->first();
           return view('shop.product',[
-            'product' => $product
+            'product' => $product,
+            'tags' => $tags,
+            'bc_category' => $bc_category,
+            'bc_subcategory' => $bc_subcategory
             ]);
         }
     }

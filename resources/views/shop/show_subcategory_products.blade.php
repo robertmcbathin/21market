@@ -20,7 +20,11 @@
         </div>
 
         <div class="col-md-9">
-          @include('sections.search')
+                  <ol class="breadcrumb">
+                    <li><a href="{{ route('shop') }}">Главная</a></li>
+                    <li><a href="/shop/category/{{ $bc_category->id }}/show"">{{ $bc_category->name }}</a></li>
+                    <li class="active">{{ $subcategory->name }}</li>
+                  </ol>
               <hr>
 
               <h1>{{$subcategory->name}}</h1>
