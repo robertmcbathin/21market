@@ -127,6 +127,10 @@
           $('[data-toggle="partnershop-1"]').tooltip();
           $('[data-toggle="partnershop-2"]').tooltip();
         });
+        $('#product-tabs a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
     </script>
 </body>
 

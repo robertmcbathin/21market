@@ -120,10 +120,24 @@ class ProductController extends Controller
         'bc_category' => $bc_category
         ]);
     }
+    public function getCategory($id)
+    {
+      $subcategory = DB::table('subcategories')
+                       ->where('category_id',$id)
+                       ->where('is_show',1)
+                       ->get();
+      $bc_category = DB::table('categories')
+                        ->where('id',$id)
+                        ->first();
+
+    }
     public function getProduct($id)
     {
       if($product = Product::find($id))
         {
+          $attributes = DB::table('product_attributes')
+                      ->where('product_id', $id)
+                      ->get();
           $tags = DB::table('product-tag')
             ->join('product_tags', 'product-tag.tag_id', '=', 'product_tags.id')
             ->select('product-tag.tag_id as id',
@@ -140,7 +154,8 @@ class ProductController extends Controller
             'product' => $product,
             'tags' => $tags,
             'bc_category' => $bc_category,
-            'bc_subcategory' => $bc_subcategory
+            'bc_subcategory' => $bc_subcategory,
+            'attributes' => $attributes
             ]);
         }
     }

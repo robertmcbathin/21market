@@ -70,6 +70,7 @@
             d.addEventListener("DOMContentLoaded", f, false);
         } else { f(); }
     })(document, window, "yandex_metrika_callbacks");
+    
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/39261585" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
