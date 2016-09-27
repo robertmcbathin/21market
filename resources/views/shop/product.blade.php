@@ -90,7 +90,7 @@
           <span class="label label-primary">{{ $tag->name }}</span>
           @endforeach
           <hr>
-          <div class="product-footer">
+          <div  class="product-footer">
             <h4 class="pull-left">
               {{ $product->price }} <i class="fa fa-rub"></i>
               <span class="label label-warning etk-price" data-toggle="tooltip" data-placement="top" title="Цена для членов ЕТК-Клуба">
