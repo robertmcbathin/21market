@@ -15,7 +15,7 @@
                           </h4>
                           <hr>
                           <h4 class="pull-left">
-                            {{ $product->price }} <i class="fa fa-rub"></i>
+                            {{ $product->price }} <i class="fa fa-rub"></i><br>
                             <span class="label label-warning etk-price" data-toggle="tooltip" data-placement="top" title="Цена для членов ЕТК-Клуба"><img src="{{ URL::to('/src/images/etk-club-logo-static-32.png') }}" alt="" class="etk-label-price"> {{ $product->price_by_card }}<i class="fa fa-rub"></i> </span>
                           </h4>
                           @if ($product->in_stock == 1)
