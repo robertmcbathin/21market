@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
 Route::group(['middleware' => ['web']], function(){
     Route::get('/', 'ProductController@getMainPage')->name('home');
     Route::get('/shop', [
@@ -59,11 +60,17 @@ Route::group(['middleware' => ['web']], function(){
         'as' => 'product.subcategory.list'
         ]);
     /**/
-    /*SHOW SINGLE PRODUCTS*/
+    /*SHOW SINGLE PRODUCT*/
     Route::get('/shop/product/{id}/show', [
         'uses' => 'ProductController@getProduct',
         'as' => 'product.show'
         ]);
+    /**/
+    /*CONFIRM RATING*/
+    Route::post('/shop/product/{id}/show', [
+        'before' => 'csrf',
+        'uses' => 'ProductController@postConfirmProductRating',
+        'as' => 'product.confirmProductRating']);
     /**/
     /*ORDER A CALLBACK*/
     Route::post('/modals/callbyuser', [
@@ -74,6 +81,23 @@ Route::group(['middleware' => ['web']], function(){
         'uses' => 'UserController@postCallback',
         'as' => 'modals.call.post'
         ]);
+    /**/
+    /*ADD A REVIEW*/
+    Route::post('/shop/product/{id}/show', array('before'=>'csrf', function($id)
+    {
+      $input = array(
+        'comment' => Input::get('comment'),
+        'rating'  => Input::get('rating')
+      );
+      // instantiate Rating model
+      $review = new App\Review;
+    
+      // If input passes validation - store the review in DB, otherwise return to product page with error message 
+        $review->storeReviewForProduct($id, $input['comment'], $input['rating']);
+        return Redirect::to('shop/product/'.$id. '/show#reviews-anchor')->with('review_posted',true);
+    
+      return Redirect::to('shop/product/'.$id.'/show#reviews-anchor')->withErrors($validator)->withInput();
+    }));
     /**/
     /*DESIRES*/
     Route::post('/modals/desirebyuser', [

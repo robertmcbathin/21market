@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Cart;
 use App\Order;
+use App\Review;
 use Illuminate\Http\Request;
 use Auth;
 use App\Http\Requests;
@@ -136,7 +137,11 @@ class ProductController extends Controller
       if($product = Product::find($id))
         {
           $attributes = DB::table('product_attributes')
-                      ->where('product_id', $id)
+                      ->join('product_attributes_types', 'product_attributes.attribute_id', 
+                        '=', 
+                        'product_attributes_types.id')
+                      ->select('product_attributes.value',
+                        'product_attributes_types.name as name')
                       ->get();
           $tags = DB::table('product-tag')
             ->join('product_tags', 'product-tag.tag_id', '=', 'product_tags.id')
@@ -150,12 +155,18 @@ class ProductController extends Controller
           $bc_category = DB::table('categories')
                             ->where('id',$bc_subcategory->category_id)
                             ->first();
+  // Get all reviews that are not spam for the product and paginate them
+          $reviews = $product->reviews()->with('user')->approved()->notSpam()->orderBy('created_at','desc')->paginate(10);
+          //Catch user id
+          if (Auth::user()) {$user_id = Auth::user()->id;} else {$user_id = 0;}
           return view('shop.product',[
             'product' => $product,
             'tags' => $tags,
             'bc_category' => $bc_category,
             'bc_subcategory' => $bc_subcategory,
-            'attributes' => $attributes
+            'attributes' => $attributes,
+            'reviews' => $reviews,
+            'user_id' => $user_id
             ]);
         }
     }
@@ -253,4 +264,11 @@ class ProductController extends Controller
         return response()->json(['message' => 'ok', 'products' => $products], 200);
       }
     }
+
+    /*CONFIRM PRODUCT RATING*/
+      public function postConfirmProductRating($id)
+      {
+        return 'Спасибо за Ваш отзыв!';
+      }
+    /*----------------------*/
 }

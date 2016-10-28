@@ -107,6 +107,8 @@
     <script src="{{ URL::to('src/js/bootstrap.min.js') }}"></script>
     <script src="{{ URL::to('src/js/affix.js') }}"></script>
     <script src="{{ URL::to('src/js/navbar-hider.min.js') }}"></script>
+    <script src="{{ URL::to('src/js/starrr.js') }}"></script>
+    <script src="{{ URL::to('src/js/expanding.js') }}"></script>
     <script>
         $(document).ready(function() {
           $("nav.navbar-fixed-top").autoHidingNavbar();
@@ -132,6 +134,46 @@
   $(this).tab('show')
 })
     </script>
+    <script type="text/javascript">
+    $(function(){
+      // initialize the autosize plugin on the review text area
+      $('#new-review').autosize({append: "\n"});
+      var reviewBox = $('#post-review-box');
+      var newReview = $('#new-review');
+      var openReviewBtn = $('#open-review-box');
+      var closeReviewBtn = $('#close-review-box');
+      var ratingsField = $('#ratings-hidden');
+      openReviewBtn.click(function(e)
+      {
+        reviewBox.slideDown(400, function()
+          {
+            $('#new-review').trigger('autosize.resize');
+            newReview.focus();
+          });
+        openReviewBtn.fadeOut(100);
+        closeReviewBtn.show();
+      });
+      closeReviewBtn.click(function(e)
+      {
+        e.preventDefault();
+        reviewBox.slideUp(300, function()
+          {
+            newReview.focus();
+            openReviewBtn.fadeIn(200);
+          });
+        closeReviewBtn.hide();
+        
+      });
+      // If there were validation errors we need to open the comment form programmatically 
+      @if($errors->first('comment') || $errors->first('rating'))
+        openReviewBtn.click();
+      @endif
+      // Bind the change event for the star rating - store the rating value in a hidden field
+      $('.starrr').on('starrr:change', function(e, value){
+        ratingsField.val(value);
+      });
+    });
+  </script>
 </body>
 
 </html>
